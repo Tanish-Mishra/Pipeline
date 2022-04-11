@@ -1,0 +1,19 @@
+version: "3"
+services: 
+ jenkins:
+  container_name: jenkins
+  image: jenkins
+  build: 
+   context: .
+   dockerfile: Dockerfile
+  volumes:
+   - "/cicd-app/jenkins_home:/var/jenkins_home"
+   - "/var/run/docker.sock:/var/run/docker.sock"
+  ports:
+   - "8081:8080" 
+  networks: 
+   - net
+networks: 
+ net:
+volumes:
+ jenkins_home:  

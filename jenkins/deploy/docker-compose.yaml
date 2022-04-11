@@ -1,0 +1,5 @@
+version: '3'
+services:
+ maven:
+  container_name: mavenapp
+  image: "tanish123/myrepo:$TAG"
