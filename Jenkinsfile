@@ -7,9 +7,9 @@ stages {
   stage('build') {
     steps {
   sh '''
-   /cicd-app/jenkins_home/workspace/maven-project/jenkins/build/mvnbuildjar.sh mvn -B -DskipTests clean package
+   ./jenkins/build/mvnbuildjar.sh mvn -B -DskipTests clean package
 
-  /cicd-app/jenkins_home/workspace/maven-project/jenkins/build/build.sh
+  ./jenkins/build/build.sh
     '''
               } 
      }
