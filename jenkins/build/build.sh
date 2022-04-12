@@ -1,5 +1,5 @@
 #!/bin/bash
-cp -f /pipeline/java-app/target/*.jar /pipeline/jenkins/build
+cp -f java-app/target/*.jar jenkins/build
 echo "********************************************************************"
 echo "********************Building The Image******************************"
 echo "*********************************************************************"

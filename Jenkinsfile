@@ -17,7 +17,7 @@ stages {
      steps {
    
     sh '''
-   /cicd-app/jenkins_home/workspace/pipeline-maven-deployment/jenkins/test/mvntest.sh mvn test
+   ./jenkins/test/mvntest.sh mvn test
     '''
 
                   }
@@ -27,7 +27,7 @@ stages {
      steps {
 
      sh '''
-       /cicd-app/jenkins_home/workspace/pipeline-maven-deployment/jenkins/push/push.sh
+       ./jenkins/push/push.sh
         '''
    
                 }
@@ -37,7 +37,7 @@ stages {
      steps {
 
        sh '''
-           /cicd-app/jenkins_home/workspace/pipeline-maven-deployment/jenkins/deploy/deploy.sh
+           ./jenkins/deploy/deploy.sh
            '''
              }
 
