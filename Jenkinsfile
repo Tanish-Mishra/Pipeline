@@ -8,6 +8,7 @@ stages {
     steps {
   sh '''
    /cicd-app/jenkins_home/workspace/pipeline-maven-deployment/jenkins/build/mvnbuildjar.sh mvn -B -DskipTests clean package
+   
    /cicd-app/jenkins_home/workspace/pipeline-maven-deployment/jenkins/build/build.sh
     '''
               } 
