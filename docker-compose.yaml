@@ -15,5 +15,3 @@ services:
    - net
 networks: 
  net:
-volumes:
- jenkins_home:  

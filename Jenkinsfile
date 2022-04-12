@@ -1,11 +1,14 @@
 pipeline {
-  agent any
+  agent any 
+environment {
+          PASS = credentials('PASSWORD')         
+                    }
 stages {
   stage('build') {
     steps {
   sh '''
-   ./pipeline/jenkins/build/mvnbuildjar.sh mvn -B -DskipTests clean package
-   ./pipeline/jenkins/build/build.sh
+   ./cicd-app/jenkins_home/workspace/pipeline-maven-deployment/jenkins/build/mvnbuildjar.sh mvn -B -DskipTests clean package
+   ./cicd-app/jenkins_home/workspace/pipeline-maven-deployment/jenkins/build/build.sh
     '''
               } 
      }
@@ -13,7 +16,7 @@ stages {
      steps {
    
     sh '''
-   ./pipeline/jenkins/test/mvntest.sh mvn test
+   ./cicd-app/jenkins_home/workspace/pipeline-maven-deployment/jenkins/test/mvntest.sh mvn test
     '''
 
                   }
@@ -23,7 +26,7 @@ stages {
      steps {
 
      sh '''
-       ./pipeline/jenkins/push/push.sh
+       ./cicd-app/jenkins_home/workspace/pipeline-maven-deployment/jenkins/push/push.sh
         '''
    
                 }
@@ -33,7 +36,7 @@ stages {
      steps {
 
        sh '''
-           ./pipeline/jenkins/deploy/deploy.sh
+           ./cicd-app/jenkins_home/workspace/pipeline-maven-deployment/jenkins/deploy/deploy.sh
            '''
              }
 
